@@ -12,9 +12,9 @@
 // Output: false
 
 var isAnagram = function(s, t) {
-    if(s.length !== t.length) return false
+    if(s.length !== t.length) return false 
 
-    return s.split('').sort().join('') ===  t.split('').sort().join('')
+    return s.split('').sort().join('') ===  t.split('').sort().join('') // 0(n log n)
 };
 
 console.log(isAnagram('anagram', 'nagaram')) // true
