@@ -29,23 +29,24 @@ function depthFirstRecursiveValues(root) {
 function breadthFirstValues(root) {
   if(!root) return [];
   const queue = [root];
-  let values = 0;
+  const values = [];
   while(queue.length) {
     const currentNode = queue.shift();
-    values += currentNode.value;
+    values.push(currentNode.value);
+
     if(currentNode.left) queue.push(currentNode.left);
     if(currentNode.right) queue.push(currentNode.right);
   }
+
   return values;
 }
-  
+
 const a = new Node(12);
 const b = new Node(13);
 const c = new Node(4);
 const d = new Node(2);
 const e = new Node(1);
-const f = new Node(10);
-
+const f = new Node(-10);
 
 a.left = b;
 a.right = c;
@@ -54,5 +55,3 @@ b.right = e;
 c.right = f;
 
 console.log(breadthFirstValues(a));
-console.log(depthFirstRecursiveValues(a));
-console.log(depthFirstValues(a));
