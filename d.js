@@ -1,57 +1,18 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
+var searchMatrix = function(matrix, target) {
+  for(let i = 0; i < matrix.length; i++) {
+    let middle = Math.floor(matrix[i].length / 2)
+    let pointerLeft = 0
+    let pointerRight = matrix[i].length - 1
+    while (pointerLeft <= pointerRight) {
+      if (matrix[i][middle] === target) return true
+      if (matrix[i][middle] < target) pointerLeft = middle + 1
+      if (matrix[i][middle] > target) pointerRight = middle - 1
+      middle = Math.floor((pointerLeft + pointerRight) / 2)
+    }
   }
-}
+  return false
+   
+};
 
-function depthFirstValues(root) {
-  if (!root) return [];
-  const stack = [root];
-  const values = [];
-  while (stack.length) {
-    const node = stack.pop();
-    values.push(node.value);
-    if (node.right) stack.push(node.right);
-    if (node.left) stack.push(node.left);
-  }
-  return values;
-}
-
-function depthFirstRecursiveValues(root) {
-  if (!root) return [];
-  const leftValues = depthFirstRecursiveValues(root.left);
-  const rightValues = depthFirstRecursiveValues(root.right);
-  return [root.value, ...leftValues, ...rightValues];
-}
-
-function breadthFirstValues(root) {
-  if(!root) return [];
-  const queue = [root];
-  const values = [];
-  while(queue.length) {
-    const currentNode = queue.shift();
-    values.push(currentNode.value);
-
-    if(currentNode.left) queue.push(currentNode.left);
-    if(currentNode.right) queue.push(currentNode.right);
-  }
-
-  return values;
-}
-
-const a = new Node(12);
-const b = new Node(13);
-const c = new Node(4);
-const d = new Node(2);
-const e = new Node(1);
-const f = new Node(-10);
-
-a.left = b;
-a.right = c;
-b.left = d;
-b.right = e;
-c.right = f;
-
-console.log(breadthFirstValues(a));
+console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3)) // true
+console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)) // false 
