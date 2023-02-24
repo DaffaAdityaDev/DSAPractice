@@ -17,35 +17,35 @@ function expression(num, oper) {
     if(!oper) 
       return num
     return oper(num)
-  }
+}
   
-  function zero(n) {return expression(0, n)}
-  function one(n) {return expression(1, n)}
-  function two(n) {return expression(2, n)}
-  function three(n) {return expression(3, n)}
-  function four(n) {return expression(4, n)}
-  function five(n) {return expression(5, n)}
-  function six(n) {return expression(6, n)}
-  function seven(n) {return expression(7, n)}
-  function eight(n) {return expression(8, n)}
-  function nine(n) {return expression(9, n)}
-  
-  function plus(x) { 
+function zero(n) {return expression(0, n)}
+function one(n) {return expression(1, n)}
+function two(n) {return expression(2, n)}
+function three(n) {return expression(3, n)}
+function four(n) {return expression(4, n)}
+function five(n) {return expression(5, n)}
+function six(n) {return expression(6, n)}
+function seven(n) {return expression(7, n)}
+function eight(n) {return expression(8, n)}
+function nine(n) {return expression(9, n)}
+
+function plus(x) { 
     return function(y) {
-      return y + x
-    }}
-  function minus(x) {
+        return y + x
+}}
+function minus(x) {
     return function(y) {
-      return y - x
-    }}
-  function times(x) {
+        return y - x
+}}
+function times(x) {
     return function(y) {
-      return y * x
-    }}
-  function dividedBy(x) {
+        return y * x
+}}
+function dividedBy(x) {
     return function(y) {
-      return Math.floor(y / x)
-    }}
+        return Math.floor(y / x)
+}}
 
 console.log(seven(times(five()))); // must return 35
 console.log(four(plus(nine()))); // must return 13
