@@ -1,18 +1,34 @@
 
 
-function Longest(arr) {
-    arr.sort((a,b) => a - b)
-    let answer = arr[0]
+function triplets(nums) {
+    const res = [];
+    nums.sort((a,b) => a-b)
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] + 1 === arr[i+1]) {
-            answer = arr[i+1]
+    for (let i = 0; i < nums.length; i++) {
+        const a = nums[i];
+        if (a > 0) break;
+        if (i > 0 && a === nums[i - 1]) continue;
+
+        let l = i + 1;
+        let r = nums.length - 1;
+        while (l < r) {
+            const threeSum = a + nums[l] + nums[r];
+            if (threeSum > 0) {
+                r--;
+            } else if (threeSum < 0) {
+                l++;
+            } else {
+                res.push([a, nums[l], nums[r]]);
+                l++;
+                r--;
+                while (nums[l] === nums[l - 1] && l < r) {
+                    l++;
+                }
+            }
         }
     }
-
-    return answer
     
+    return res;
 }
 
-console.log(Longest([100,4,200,1,3,2]))
-
+console.log(triplets([-1,0,1,2,-1,-4]));
