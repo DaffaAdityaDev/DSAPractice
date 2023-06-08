@@ -29,6 +29,6 @@ function triplets(nums) {
     }
     
     return res;
-}
+} 
 
 console.log(triplets([-1,0,1,2,-1,-4]));
