@@ -1,34 +1,22 @@
 
 
-function triplets(nums) {
-    const res = [];
-    nums.sort((a,b) => a-b)
+function maxArea(nums) {
+    let maxArea = -Infinity
+    let left = 0
+    let right = nums.length - 1
 
-    for (let i = 0; i < nums.length; i++) {
-        const a = nums[i];
-        if (a > 0) break;
-        if (i > 0 && a === nums[i - 1]) continue;
+    while (left < right) {
+        const area = Math.min(nums[left], nums[right]) * (right - left)
+        maxArea = Math.max(maxArea, area)
 
-        let l = i + 1;
-        let r = nums.length - 1;
-        while (l < r) {
-            const threeSum = a + nums[l] + nums[r];
-            if (threeSum > 0) {
-                r--;
-            } else if (threeSum < 0) {
-                l++;
-            } else {
-                res.push([a, nums[l], nums[r]]);
-                l++;
-                r--;
-                while (nums[l] === nums[l - 1] && l < r) {
-                    l++;
-                }
-            }
+        if (nums[left] < nums[right]) {
+            left++
+        } else {
+            right--
         }
     }
-    
-    return res;
-} 
 
-console.log(triplets([-1,0,1,2,-1,-4]));
+    return maxArea
+}
+
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
