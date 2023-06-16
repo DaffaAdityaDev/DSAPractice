@@ -1,23 +1,29 @@
 
 
-function maxArea(nums) {
-    let maxArea = -Infinity
-    let left = 0
-    let right = nums.length - 1
+function substring(s) {
+    let arr = []
+    const splitStr = s.split('')
 
-    while (left < right) {
-        const area = Math.min(nums[left], nums[right]) * (right - left)
-        maxArea = Math.max(maxArea, area)
-
-        if (nums[left] < nums[right]) {
-            left++
-        } else {
-            right--
+    for (let i = 0; i < splitStr.length; i++) {
+        let temp = []
+        for (let j = i; j < splitStr.length; j++) {
+            if (temp.includes(splitStr[j])) {
+                break
+            } else {
+                temp.push(splitStr[j])
+            }
+        }
+        if (temp.length > arr.length) {
+            arr = temp
         }
     }
 
-    return maxArea
+
+
+    return arr.length
 }
 
-console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+
+
+console.log(substring("abcabcbb"));
 
