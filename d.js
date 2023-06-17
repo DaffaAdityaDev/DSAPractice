@@ -1,29 +1,23 @@
 
 
-function substring(s) {
-    let arr = []
-    const splitStr = s.split('')
+function lengthOfLongestSubstring(s) {
+    const set = new Set();
+    let left = 0;
+    let max = 0;
 
-    for (let i = 0; i < splitStr.length; i++) {
-        let temp = []
-        for (let j = i; j < splitStr.length; j++) {
-            if (temp.includes(splitStr[j])) {
-                break
-            } else {
-                temp.push(splitStr[j])
-            }
+    for (let r = 0; r < s.length; r++) {
+        while (set.has(s[r])) {
+            set.delete(s[left]);
+            left++;
         }
-        if (temp.length > arr.length) {
-            arr = temp
-        }
+        set.add(s[r]);
+        max = Math.max(max, set.size);
     }
-
-
-
-    return arr.length
+    return max;
 }
 
 
-
-console.log(substring("abcabcbb"));
+console.log(substring("abcabcbb")); // 3
+console.log(substring("bbbbb")); // 1
+console.log(substring("pwwkew")); // 3
 

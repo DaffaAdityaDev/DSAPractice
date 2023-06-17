@@ -48,4 +48,3 @@ function lengthOfLongestSubstring(s) {
 console.log(substring("abcabcbb")); // 3
 console.log(substring("bbbbb")); // 1
 console.log(substring("pwwkew")); // 3
-
