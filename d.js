@@ -1,23 +1,33 @@
 
 
-function lengthOfLongestSubstring(s) {
-    const set = new Set();
-    let left = 0;
-    let max = 0;
+var characterReplacement = function (s, k) {
+    let [left, right, longest, max] = new Array(4).fill(0);
+    const frequencyMap = new Array(26).fill(0);
 
-    for (let r = 0; r < s.length; r++) {
-        while (set.has(s[r])) {
-            set.delete(s[left]);
+    while (right < s.length) {
+        const count = ++frequencyMap[s.charCodeAt(right) - 65];
+
+        longest = Math.max(longest, count);
+
+        let window = right - left + 1;
+        const canSlide = k < window - longest;
+        if (canSlide) {
+            frequencyMap[s.charCodeAt(left) - 65]--;
             left++;
         }
-        set.add(s[r]);
-        max = Math.max(max, set.size);
+
+        window = right - left + 1;
+        max = Math.max(max, window);
+
+        right++;
     }
+
     return max;
-}
+};
 
 
-console.log(substring("abcabcbb")); // 3
-console.log(substring("bbbbb")); // 1
-console.log(substring("pwwkew")); // 3
+
+
+console.log(characterReplacement("ABAB", 2)); 
+
 
