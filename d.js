@@ -1,82 +1,23 @@
 
 
-var minWindow = (s, t) =>　{
-    const isMissingArgs = !s.length || !t.length;
-    if (isMissingArgs) return '';
-
-    const frequencyMap = getFrequencyMap(t);
-    const { start, end } = getWindowPointers(s, t, frequencyMap);
-
-    return getSubString(s, start, end);
+var search = (nums, target) =>　{
+    if (nums.length === 0) return -1;
     
+    let left = 0;
+    let right = nums.length - 1;
+
+    while(left <= right) {
+        if (nums[left] === target) return left;
+        if (nums[right] === target) return right;
+        left++;
+        right--;
+    }
+
+    return -1;
 };
 
-const getFrequencyMap = (str, frequencyMap = new Map()) => {
-    for (const char of str) {
-        frequencyMap.set(char, (frequencyMap.get(char) || 0) + 1);
-    }
 
-    return frequencyMap;
-}
-
-const getWindowPointers = (s, t, frequencyMap) => {
-    let [left, right, matched, start, end] = [0, 0, 0, 0, s.length + 1];
-
-    while (right < s.length) {
-        matched = addRightFrequency(s, right, frequencyMap, matched);
-        const canSlide = () => matched === t.length;
-
-        while (canSlide()) {
-            const window = right - left + 1
-
-            const isSmaller = window < end 
-            if (isSmaller) {
-                [start, end] = [left, window];
-            }
-
-            matched = subtractLeftFrequency(s, left, frequencyMap, matched);
-
-            left++;
-        }
-
-        right++;
-    }
-
-    return { start, end };
-
-}
-
-const addRightFrequency = (s, right, frequencyMap, matched) => {
-    const char = s[right];
-
-    if (frequencyMap.has(char)) {
-        frequencyMap.set(char, frequencyMap.get(char) - 1);
-
-        const isInWindow = 0 <= frequencyMap.get(char);
-        if (isInWindow) matched++;
-
-    }
-
-    return matched;
-}
-
-const subtractLeftFrequency = (s, left, frequencyMap, matched) => {
-    const char = s[left];
-
-    if (frequencyMap.has(char)) {
-        const isOutWindow = frequencyMap.get(char) === 0;
-        if (isOutWindow) matched--;
-
-        frequencyMap.set(char, frequencyMap.get(char) + 1);
-    }
-
-    return matched;
-
-}
-
-
-const getSubString = (s, start, end) => end <= s.length ? s.substring(start, start + end) : '';
-
-
-console.log(minWindow("ADOBECODEBANC", "ABC")); 
+console.log(search([4,5,6,7,0,1,2], 0));  // 4
+console.log(search([4,5,6,7,0,1,2], 3)); // -1
+console.log(search([1], 0)); // -1
 
