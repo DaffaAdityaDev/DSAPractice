@@ -1,36 +1,40 @@
 
 
-var maxDepth = (root) =>　{
-    if (!root) return 0;
-    let left = maxDepth(root.left);
-    let right = maxDepth(root.right);
-
-    console.log(left, right);
-
-    return Math.max(left, right) + 1;
-    
+var isSameTree = (p, q) =>　{
+    if (!p && !q) return true
+    if (!p || !q) return false
+    if (p.val !== q.val) return false
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+  
 }
 
 
-console.log(maxDepth({
-    val: 3,
-    left: {
-        val: 9,
-        left: null,
-        right: null
-    },
-    right: {
-        val: 20,
+console.log(isSameTree(
+    {
+        val: 1,
         left: {
-            val: 15,
+            val: 2,
             left: null,
             right: null
         },
         right: {
-            val: 7,
+            val: 3,
+            left: null,
+            right: null
+        }
+    },
+    {
+        val: 1,
+        left: {
+            val: 2,
+            left: null,
+            right: null
+        },
+        right: {
+            val: 3,
             left: null,
             right: null
         }
     }
-}));
+))
 
