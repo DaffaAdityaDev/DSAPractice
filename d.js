@@ -1,23 +1,36 @@
 
 
-var search = (nums, target) =>　{
-    if (nums.length === 0) return -1;
+var maxDepth = (root) =>　{
+    if (!root) return 0;
+    let left = maxDepth(root.left);
+    let right = maxDepth(root.right);
+
+    console.log(left, right);
+
+    return Math.max(left, right) + 1;
     
-    let left = 0;
-    let right = nums.length - 1;
+}
 
-    while(left <= right) {
-        if (nums[left] === target) return left;
-        if (nums[right] === target) return right;
-        left++;
-        right--;
+
+console.log(maxDepth({
+    val: 3,
+    left: {
+        val: 9,
+        left: null,
+        right: null
+    },
+    right: {
+        val: 20,
+        left: {
+            val: 15,
+            left: null,
+            right: null
+        },
+        right: {
+            val: 7,
+            left: null,
+            right: null
+        }
     }
-
-    return -1;
-};
-
-
-console.log(search([4,5,6,7,0,1,2], 0));  // 4
-console.log(search([4,5,6,7,0,1,2], 3)); // -1
-console.log(search([1], 0)); // -1
+}));
 
