@@ -1,41 +1,17 @@
-
-var isSameTree = (p, q) =>　{
-    if (!p && !q) return true
-    if (!p || !q) return false
-    if (p.val !== q.val) return false
-    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
-  
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
 }
 
-
-console.log(isSameTree(
-    {
-        val: 1,
-        left: {
-            val: 2,
-            left: null,
-            right: null
-        },
-        right: {
-            val: 3,
-            left: null,
-            right: null
-        }
-    },
-    {
-        val: 1,
-        left: {
-            val: 2,
-            left: null,
-            right: null
-        },
-        right: {
-            val: 3,
-            left: null,
-            right: null
-        }
+var reverseList = function(head) {
+    
+    if (head == null || head.next == null) {
+        return head;
     }
-))
+    var p = reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p;
+}
 
-
-
+console.log(reverseList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))))));
