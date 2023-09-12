@@ -23,8 +23,6 @@
 // There may exists other ways to achive this answer too.
  
 
-
-
 var characterReplacement = function (s, k) {
     let [left, right, longest, max] = new Array(4).fill(0);
     const frequencyMap = new Array(26).fill(0);
@@ -53,5 +51,7 @@ var characterReplacement = function (s, k) {
 
 
 
-console.log(characterReplacement("ABAB", 2));  // 4
-console.log(characterReplacement("AABABBA", 1)); // 4
+// console.log(characterReplacement("ABAB", 2));  // 4
+// console.log(characterReplacement("AABABBA", 1)); // 4
+
+export default characterReplacement;

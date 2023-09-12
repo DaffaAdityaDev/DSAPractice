@@ -27,4 +27,6 @@ var searchMatrix = function(matrix, target) {
       }
 
     return false 
- };
+};
+
+export default searchMatrix

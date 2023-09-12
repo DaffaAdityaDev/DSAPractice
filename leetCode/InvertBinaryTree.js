@@ -31,3 +31,9 @@ var invertTree = function(root) { //0(n)
     invertTree(root.right);
     return root
 };
+
+// console.log(invertTree([4,2,7,1,3,6,9])); // [4,2,7,1,3,6,9,]
+// console.log(invertTree([2,1,3])); // [2,3,1]
+// console.log(invertTree([])); // []
+
+export default invertTree;

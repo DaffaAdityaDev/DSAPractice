@@ -48,74 +48,76 @@ var isSameTree = (p, q) =>　{
 }
 
 
-console.log(isSameTree(
-    {
-        val: 1,
-        left: {
-            val: 2,
-            left: null,
-            right: null
-        },
-        right: {
-            val: 3,
-            left: null,
-            right: null
-        }
-    },
-    {
-        val: 1,
-        left: {
-            val: 2,
-            left: null,
-            right: null
-        },
-        right: {
-            val: 3,
-            left: null,
-            right: null
-        }
-    }
-)) // true
+// console.log(isSameTree(
+//     {
+//         val: 1,
+//         left: {
+//             val: 2,
+//             left: null,
+//             right: null
+//         },
+//         right: {
+//             val: 3,
+//             left: null,
+//             right: null
+//         }
+//     },
+//     {
+//         val: 1,
+//         left: {
+//             val: 2,
+//             left: null,
+//             right: null
+//         },
+//         right: {
+//             val: 3,
+//             left: null,
+//             right: null
+//         }
+//     }
+// )) // true
 
 
-console.log(isSameTree(
-    {
-        val: 1,
-        left: {
-            val: 2,
-            left: null,
-            right: null
-        },
-        right: null
-    },
-    {
-        val: 1,
-        left: null,
-        right: {
-            val: 2,
-            left: null,
-            right: null
-        }
-    }
-)) // false
+// console.log(isSameTree(
+//     {
+//         val: 1,
+//         left: {
+//             val: 2,
+//             left: null,
+//             right: null
+//         },
+//         right: null
+//     },
+//     {
+//         val: 1,
+//         left: null,
+//         right: {
+//             val: 2,
+//             left: null,
+//             right: null
+//         }
+//     }
+// )) // false
 
-console.log(isSameTree(
-    {
-        val: 1,
-        left: {
-            val: 2,
-            left: null,
-            right: null
-        },
-        right: null
-    },
-    {
-        val: 1,
-        left: null,
-        right: {
-            val: 2,
-            left: null,
-            right: null
-        }
-    }
-)) // false
+// console.log(isSameTree(
+//     {
+//         val: 1,
+//         left: {
+//             val: 2,
+//             left: null,
+//             right: null
+//         },
+//         right: null
+//     },
+//     {
+//         val: 1,
+//         left: null,
+//         right: {
+//             val: 2,
+//             left: null,
+//             right: null
+//         }
+//     }
+// )) // false
+
+export default isSameTree

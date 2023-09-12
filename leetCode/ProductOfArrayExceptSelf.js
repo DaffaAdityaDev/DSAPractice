@@ -48,6 +48,8 @@ var productExceptSelf = function(nums) {
     return answerArr
 };
 
-console.log(productExceptSelf([1,2,3,4])) // [24,12,8,6]
-console.log(productExceptSelf([-1,1,0,-3,3])) // [0,0,9,0,0]
-console.log(productExceptSelf([1,2,3,4,5,6,7,8,9,10])) // [3628800, 1814400, 1209600, 907200, 725760, 604800, 518400, 453600, 403200, 362880]
+// console.log(productExceptSelf([1,2,3,4])) // [24,12,8,6]
+// console.log(productExceptSelf([-1,1,0,-3,3])) // [0,0,9,0,0]
+// console.log(productExceptSelf([1,2,3,4,5,6,7,8,9,10])) // [3628800, 1814400, 1209600, 907200, 725760, 604800, 518400, 453600, 403200, 362880]
+
+export default productExceptSelf

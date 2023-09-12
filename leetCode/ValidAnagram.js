@@ -15,5 +15,7 @@ var isAnagram = function(s, t) {
     return s.split('').sort().join('') ===  t.split('').sort().join('') // 0(n log n)
 };
 
-console.log(isAnagram('anagram', 'nagaram')) // true
-console.log(isAnagram('rat', 'car')) // false
+// console.log(isAnagram('anagram', 'nagaram')) // true
+// console.log(isAnagram('rat', 'car')) // false
+
+export default isAnagram

@@ -52,6 +52,8 @@ function groupAnagrams(words, map = new Map()) {
 
 }
 
-console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
-// console.log(groupAnagrams([""]));
-// console.log(groupAnagrams(["a"]));
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])); // [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+// console.log(groupAnagrams([""])); // [['']]
+// console.log(groupAnagrams(["a"])); // [['a']]
+
+export default groupAnagrams;

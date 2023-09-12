@@ -67,6 +67,8 @@ var mergeTwoLists = function(l1, l2) {
 
 }
 
-console.log(mergeTwoLists(new ListNode(1, new ListNode(2, new ListNode(4))), new ListNode(1, new ListNode(3, new ListNode(4))))); // 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> null
-console.log(mergeTwoLists([])) // []
-console.log(mergeTwoLists([0])) // [0]
+// console.log(mergeTwoLists(new ListNode(1, new ListNode(2, new ListNode(4))), new ListNode(1, new ListNode(3, new ListNode(4))))); // 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> null
+// console.log(mergeTwoLists([])) // []
+// console.log(mergeTwoLists([0])) // [0]
+
+export default mergeTwoLists;

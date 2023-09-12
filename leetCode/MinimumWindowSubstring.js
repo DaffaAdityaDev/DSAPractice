@@ -108,6 +108,8 @@ const subtractLeftFrequency = (s, left, frequencyMap, matched) => {
 const getSubString = (s, start, end) => end <= s.length ? s.substring(start, start + end) : '';
 
 
-console.log(minWindow("ADOBECODEBANC", "ABC")); // BANC
-console.log(minWindow("a", "a")); // a
-console.log(minWindow("a", "aa")); // ''
+// console.log(minWindow("ADOBECODEBANC", "ABC")); // BANC
+// console.log(minWindow("a", "a")); // a
+// console.log(minWindow("a", "aa")); // ''
+
+export default minWindow;

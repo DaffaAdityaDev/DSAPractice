@@ -36,7 +36,7 @@
 // -104 <= target <= 104
 
 
-var search = (nums, target) =>　{
+var searchInRotatedSortedArr = (nums, target) =>　{
     if (nums.length === 0) return -1;
     
     let left = 0;
@@ -53,7 +53,9 @@ var search = (nums, target) =>　{
 };
 
 
-console.log(search([4,5,6,7,0,1,2], 0));  // 4
-console.log(search([4,5,6,7,0,1,2], 3)); // -1
-console.log(search([1], 0)); // -1
+// console.log(search([4,5,6,7,0,1,2], 0));  // 4
+// console.log(search([4,5,6,7,0,1,2], 3)); // -1
+// console.log(search([1], 0)); // -1
+
+export default searchInRotatedSortedArr;
 

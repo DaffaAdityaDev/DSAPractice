@@ -69,10 +69,8 @@ function triplets(nums) {
     return res;
 }
 
-console.log(triplets([-1,0,1,2,-1,-4])); // [[-1,-1,2],[-1,0,1]]
-console.log(triplets([0,1,1])); // []
-console.log(triplets([0,0,0])); // [[0,0,0]]
+// console.log(triplets([-1,0,1,2,-1,-4])); // [[-1,-1,2],[-1,0,1]]
+// console.log(triplets([0,1,1])); // []
+// console.log(triplets([0,0,0])); // [[0,0,0]]
 
-module.export = {
-    triplets
-};
+export default triplets;

@@ -62,3 +62,5 @@ console.log(maxDepth({
         right: null
     }
 })); // 2
+
+export default maxDepth;
