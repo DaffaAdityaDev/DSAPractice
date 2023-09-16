@@ -297,3 +297,4 @@ test('isValid', () => {
     expect(isValid("()[]{}")).toEqual(true)
     expect(isValid("(]")).toEqual(false)
 })
+
