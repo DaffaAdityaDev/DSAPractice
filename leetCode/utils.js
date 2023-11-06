@@ -21,6 +21,7 @@ import topKFrequent from './TopKFrequentElements.js'
 import isAnagram from './ValidAnagram.js'
 import isPalindrome from './ValidPalindrome.js'
 import isValid from './ValidParentheses.js'
+import getConcatenation from './ConcatenationOfArray.js'
 export {
     twoSum,
     treeSum,
@@ -44,5 +45,6 @@ export {
     topKFrequent,
     isAnagram,
     isPalindrome,
-    isValid
+    isValid,
+    getConcatenation
 }

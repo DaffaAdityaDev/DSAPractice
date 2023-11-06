@@ -7,7 +7,7 @@ import {
     productExceptSelf, reverseList, isSameTree,
     searchMatrix, searchInRotatedSortedArr, 
     topKFrequent, isAnagram, isPalindrome,
-    isValid
+    isValid, getConcatenation
 } from '../../leetCode/utils.js'
 
 
@@ -296,5 +296,11 @@ test('isValid', () => {
     expect(isValid("()")).toEqual(true)
     expect(isValid("()[]{}")).toEqual(true)
     expect(isValid("(]")).toEqual(false)
+})
+
+
+test('getConcatenation', () => {
+    expect(getConcatenation([1,2,1])).toEqual([1,2,1,1,2,1])
+    expect(getConcatenation([1,3,2,1])).toEqual([1,3,2,1,1,3,2,1])
 })
 
