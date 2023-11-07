@@ -3,8 +3,6 @@ function TreeNode(val) {
     this.left = (left === undefined ? null : left)
     this.right = (right === undefined ? null : right)
 }
-
-
 var isBalanced = function(root) {
     
 };
