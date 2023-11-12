@@ -6,16 +6,19 @@ var replaceElements = function(arr) {
         for (let j = i + 1; j < arr.length; j++) {
             if (arr[j] > bigest) {
                 bigest = arr[j];
-            } else if (arr[j] === arr.length - 1) {
-                bigest = -1;
-            } else {
-                continue;
             }
+
+            
         }
         newArr.push(bigest);
     }
+
+    newArr.pop();
+    newArr.push(-1);
 
     return newArr;
 };
 
 console.log(replaceElements([17,18,5,4,6,1])); // [18,6,6,6,1,-1]
+console.log(replaceElements([400])); // [-1]
+console.log(replaceElements([400, 401])); // [401, -1]
