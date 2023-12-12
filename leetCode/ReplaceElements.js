@@ -1,22 +1,15 @@
 var replaceElements = function(arr) {
-    let newArr = [];
+    let maxSoFar = -1;
+    let result = new Array(arr.length);
 
-    for(let i = 0; i < arr.length; i++) {
-        let bigest = 0;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] > bigest) {
-                bigest = arr[j];
-            }
-
-            
-        }
-        newArr.push(bigest);
+    for(let i = arr.length - 1; i >= 0; i--) {
+        result[i] = maxSoFar;
+        maxSoFar = Math.max(maxSoFar, arr[i]);
     }
 
-    newArr.pop();
-    newArr.push(-1);
+    result[arr.length - 1] = -1;
 
-    return newArr;
+    return result;
 };
 
 console.log(replaceElements([17,18,5,4,6,1])); // [18,6,6,6,1,-1]

@@ -1,21 +1,22 @@
-var replaceElements = function(arr) {
-    let newArr = [];
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
 
-    for(let i = 0; i < arr.length; i++) {
-        let bigest = 0;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] > bigest) {
-                bigest = arr[j];
-            } else if (arr[j] === arr.length - 1) {
-                bigest = -1;
-            } else {
-                continue;
-            }
-        }
-        newArr.push(bigest);
-    }
+function TreeNode(val, left, right) {
+  this.val = (val===undefined ? 0 : val)
+  this.left = (left===undefined ? null : left)
+  this.right = (right===undefined ? null : right)
+}
 
-    return newArr;
+
+
+var isSubtree = function(root, subRoot) {
+  
 };
 
-console.log(replaceElements([17,18,5,4,6,1])); // [18,6,6,6,1,-1]
+console.log(isSubtree([3,4,5,1,2], [4,1,2])); // true
