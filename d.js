@@ -1,22 +1,12 @@
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
+function generateHashtag (str) {
+    if (str.trim() === '') {
+        return false;
+    }
 
-function TreeNode(val, left, right) {
-  this.val = (val===undefined ? 0 : val)
-  this.left = (left===undefined ? null : left)
-  this.right = (right===undefined ? null : right)
+    const string = str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+    const hashtag = `#${string}`;
+
+    return hashtag.length > 140 ? false : hashtag;
 }
 
-
-
-var isSubtree = function(root, subRoot) {
-  
-};
-
-console.log(isSubtree([3,4,5,1,2], [4,1,2])); // true
+console.log(generateHashtag('Do We have A Hashtag')); // #DoWeHaveAHashtag
