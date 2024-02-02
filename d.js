@@ -1,12 +1,16 @@
-function generateHashtag (str) {
-    if (str.trim() === '') {
-        return false;
+function countChange(money, coins) {
+    // your implementation here
+    let dp = new Array(money + 1).fill(0);
+    dp[0] = 1;
+
+    for (let i = 0; i < coins.length; i++) {
+        for (let j = coins[i]; j <= money; j++) {
+            dp[j] += dp[j - coins[i]];
+        }
     }
+    
 
-    const string = str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-    const hashtag = `#${string}`;
-
-    return hashtag.length > 140 ? false : hashtag;
+    return dp[money];
 }
 
-console.log(generateHashtag('Do We have A Hashtag')); // #DoWeHaveAHashtag
+console.log(countChange(4, [1,2]) === 3)
