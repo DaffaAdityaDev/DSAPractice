@@ -1,19 +1,44 @@
-function spiralize(n) {
-    return Array(n)
-    .fill(Array(n).fill())
-    .map((x, r) =>
-      x.map((y, c) => {
-        return +(
-          // top
-          (r < n / 2 && r % 2 === 0 && c >= r - 2 && c <= n - r - 1) ||
-          // right
-          ((n - c) % 2 === 1 && r > n - c - 1 && r <= c) ||
-          // bottom
-          ((n - r) % 2 === 1 && c > n - r - 1 && c < r) ||
-          // left
-          (c % 2 === 0 && r > c + 1 && r < n - c)
-        );
-      })
-    );
+// function permutations(string) {
+//   if (string.length === 1) {
+//     return [string];
+//   }
+//   const result = [];
+//   for (let i = 0; i < string.length; i++) {
+//     const char = string[i];
+//     const remainingChars = string.slice(0, i) + string.slice(i + 1);
+//     for (const subPermutation of permutations(remainingChars)) {
+//       result.push(char + subPermutation);
+//     }
+//   }
+//   return result;
+
+// }
+
+// console.log(permutations('ab')); // ['ab', 'ba']
+
+function permutations(string) {
+  if (string.length === 1) {
+    return [string];
+  }
+
+  const chars = string.split('');
+  const result = new Set();
+
+  function dfs(chars, start = 0) {
+    if (start === chars.length - 1) {
+      result.add(chars.join(''));
+      return;
+    }
+
+    for (let i = start; i < chars.length; i++) {
+      [chars[start], chars[i]] = [chars[i], chars[start]];
+      dfs(chars, start + 1);
+      [chars[start], chars[i]] = [chars[i], chars[start]];
+    }
+  }
+
+  dfs(chars);
+  return [...result];
 }
-console.log(spiralize(5)); // [ [1,1,1,1,1], [0,0,0,0,1], [1,1,1,0,1], [1,0,0,0,1], [1,1,1,1,1] ]
+
+console.log(permutations('ab')); // ['ab', 'ba']
