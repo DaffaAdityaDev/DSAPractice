@@ -72,3 +72,4 @@ function encodeRailFenceCipher(string, numberRails) {
   
   console.log(encodeRailFenceCipher("WEAREDISCOVEREDFLEEATONCE", 3)); // "WECRLTEERDSOEEFEAOCAIVDEN"
   console.log(decodeRailFenceCipher("WECRLTEERDSOEEFEAOCAIVDEN", 3)); // "WEAREDISCOVEREDFLEEATONCE"
+  
