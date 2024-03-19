@@ -1,56 +1,55 @@
-function encodeRailFenceCipher(string, numberRails) {
-  // code
-  const arr = new Array(numberRails).fill('');
-  let rail = 0;
-  let direction = 1;
-  for (let i = 0; i < string.length; i++) {
-    arr[rail] += string[i];
-    rail += direction;
-    if (rail === numberRails - 1 || rail === 0) {
-      direction = -direction;
-    }
+
+var MinStack = function() {
+  this.mainStack = [];
+  this.minStack = [];
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+  this.mainStack.push(val);
+  if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {
+    this.minStack.push(val);
   }
-  return arr.join('');
-}
+    
+};
 
-function decodeRailFenceCipher(string, numberRails) {
-  let rail = new Array(numberRails).fill().map(() => new Array(string.length).fill('\n'));
-
-  let dir_down = false;
-  let row = 0, col = 0;
-
-  for (let i = 0; i < string.length; i++) {
-    if (row == 0) dir_down = true;
-    if (row == numberRails - 1) dir_down = false;
-
-    rail[row][col++] = '*';
-
-    dir_down ? row++ : row--;
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+  if (this.mainStack[this.mainStack.length - 1] === this.minStack[this.minStack.length - 1]) {
+    this.minStack.pop();
   }
+  this.mainStack.pop();
+    
+};
 
-  let index = 0;
-  for (let i = 0; i < numberRails; i++) {
-    for (let j = 0; j < string.length; j++) {
-      if (rail[i][j] == '*' && index < string.length) {
-        rail[i][j] = string[index++];
-      }
-    }
-  }
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+  return this.mainStack[this.mainStack.length - 1];
+    
+};
 
-  let result = '';
-  row = 0, col = 0;
-  for (let i = 0; i < string.length; i++) {
-    if (row == 0) dir_down = true;
-    if (row == numberRails - 1) dir_down = false;
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+  return this.minStack[this.minStack.length - 1];
+    
+};
 
-    if (rail[row][col] != '*') {
-      result += rail[row][col++];
-    }
+/** 
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
 
-    dir_down ? row++ : row--;
-  }
-  return result;
-}
-
-console.log(encodeRailFenceCipher("WEAREDISCOVEREDFLEEATONCE", 3)); // "WECRLTEERDSOEEFEAOCAIVDEN"
-console.log(decodeRailFenceCipher("WECRLTEERDSOEEFEAOCAIVDEN", 3)); // "WEAREDISCOVEREDFLEEATONCE"
+console.log('MinStack', MinStack); // function MinStack() { this.mainStack = []; this.minStack = []; }
