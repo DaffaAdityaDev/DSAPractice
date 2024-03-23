@@ -1,5 +1,19 @@
-function findShort(s){
-  return Math.min(...s.split(' ').map(word => word.length))
+function countPositivesSumNegatives(input) {
+  // your code here
+  if (input === null || input.length === 0) return []
+
+  let positiveCount = 0
+  let negativeSum = 0
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] > 0) {
+      positiveCount++
+    } else {
+      negativeSum += input[i]
+    }
+  }
+
+
+  return [positiveCount, negativeSum]
 }
 
-console.log(findShort("bitcoin take over the world maybe who knows perhaps"), 3) // 3
+console.log(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15) // [10, -65]
