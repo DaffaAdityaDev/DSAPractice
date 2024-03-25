@@ -1,19 +1,6 @@
-function countPositivesSumNegatives(input) {
-  // your code here
-  if (input === null || input.length === 0) return []
-
-  let positiveCount = 0
-  let negativeSum = 0
-  for (let i = 0; i < input.length; i++) {
-    if (input[i] > 0) {
-      positiveCount++
-    } else {
-      negativeSum += input[i]
-    }
-  }
-
-
-  return [positiveCount, negativeSum]
+function openOrSenior(data){
+  // ...
+  return data.map(([age, handicap]) => (age >= 55 && handicap > 7) ? 'Senior' : 'Open');
 }
 
-console.log(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15) // [10, -65]
+console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]])) // ["Open", "Senior", "Open", "Senior"]
