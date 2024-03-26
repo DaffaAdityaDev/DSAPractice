@@ -1,6 +1,16 @@
-function openOrSenior(data){
-  // ...
-  return data.map(([age, handicap]) => (age >= 55 && handicap > 7) ? 'Senior' : 'Open');
+function printerError(s) {
+  // your code
+  const validsChars = 'abcdefghijklm'
+  let errors = 0
+
+  for (let i = 0; i < s.length; i++) {
+    if (!validsChars.includes(s[i])) {
+      errors++
+    }
+  }
+
+  return `${errors}/${s.length}`
 }
 
-console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]])) // ["Open", "Senior", "Open", "Senior"]
+console.log(printerError("aaabbbbhaijjjm")) // 0/14
+console.log(printerError("aaaxbbbbyyhwawiwjjjwwm")) // 8/22
