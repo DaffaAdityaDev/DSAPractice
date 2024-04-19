@@ -88,3 +88,4 @@ medianFinder.addNum(3);
 console.log(medianFinder.findMedian()); // Output: 2.0
 
 // its works in leetcode
+
