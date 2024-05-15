@@ -125,3 +125,4 @@ printLinkedList(head2); // [1,6,2,5,3,4]
 let head3 = constructLinkedList([1,2,3,4]);
 reorderList(head3);
 printLinkedList(head3); // [1,4,2,3]
+
