@@ -72,3 +72,4 @@ function miniMaxSum(arr) {
 
 console.log(miniMaxSum([1, 2, 3, 4, 5])) // 10 14
 console.log(miniMaxSum([7, 69, 2, 221, 8974])) // 299 9271
+
