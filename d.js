@@ -4,5 +4,5 @@ function(d) {
 }
 
 
-console.log(d('Hello,       wWorld!'))
+console.log(d('Hello,  wWorld!'))
 
