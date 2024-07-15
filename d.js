@@ -1,14 +1,89 @@
-/**
- * @param {character[][]} grid
- * @return {number}
- */
-var numIslands = function(grid) {
-    let x = grid.length;
-    let y = grid[0].length;
-    let currentIsland = 0;
-    let 
-};
+// taircase detail
 
-console.log(numIslands([["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]) === 1)
-// console.log(numIslands([["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]) === 3)
-// console.log(numIslands([["1","0","1","1","0","1","1"]]) === 3)
+// This is a staircase of size :
+
+//    #
+//   ##
+//  ###
+// ####
+// Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+// Write a program that prints a staircase of size .
+
+// Function Description
+
+// Complete the staircase function in the editor below.
+
+// staircase has the following parameter(s):
+
+// int n: an integer
+// Print
+
+// Print a staircase as described above.
+
+// Input Format
+
+// A single integer, , denoting the size of the staircase.
+
+// Constraints
+
+//  .
+
+// Output Format
+
+// Print a staircase of size  using # symbols and spaces.
+
+// Note: The last line must have  spaces in it.
+
+// Sample Input
+
+// 6 
+// Sample Output
+
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######
+
+// Explanation
+
+// The staircase is right-aligned, composed of # symbols and spaces, and has a height and width of 6.
+
+function staircase(n) {
+    let out = ''
+    
+    for (let i = 1; i <= n; i++) {
+        for (let j = n - 1; j >= i; j--){
+            out += ' '
+        }
+        
+        for (let h = 1; h <= i; h++) {
+            out += '#'
+        }
+        
+        out += '\n'
+        
+    }
+    return out
+    
+}
+
+
+console.log(staircase(6)) // should return 
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######
+console.log(staircase(4)) // should return
+//    #
+//   ##
+//  ###
+// ####
+console.log(staircase(3)) // should return  
+//   #
+//  ##
+// ###
