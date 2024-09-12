@@ -1,6 +1,7 @@
-export const getAnAdult = (users) => {
-    // Write your code here
-    return users.find(user => user.age >= 18)
-  }
-  
-console.log(getAnAdult([{name: "John", age: 20}, {name: "Jane", age: 18}, {name: "Jim", age: 22}]))
+function booleanToString(b){
+  return b.toString()
+}
+
+console.log(booleanToString(true))
+console.log(booleanToString(true))
+console.log(booleanToString(false))
