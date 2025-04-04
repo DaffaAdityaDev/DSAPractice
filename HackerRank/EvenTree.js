@@ -68,7 +68,7 @@
 // No more edges can be removed.
 
 
-// Complete the evenForest function below.
+// Complete the evenForest function below..
 function evenForest(t_nodes, t_edges, t_from, t_to) {
   // Create adjacency list for the tree
   const tree = Array.from({ length: t_nodes + 1 }, () => []);
